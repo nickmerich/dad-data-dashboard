@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Rocket, Shield, Heart } from 'lucide-react';
+import { Target, TrendingUp, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export const GetStarted = () => {
@@ -16,7 +16,7 @@ export const GetStarted = () => {
     if (!email) {
       toast({
         title: "Email Required",
-        description: "Please enter your email address to get started.",
+        description: "Please enter your email address to begin your journey.",
         variant: "destructive"
       });
       return;
@@ -40,8 +40,8 @@ export const GetStarted = () => {
       console.log('Email submitted:', email);
       
       toast({
-        title: "Thanks for your interest!",
-        description: "We'll be in touch soon. Check your email for next steps.",
+        title: "Welcome to DadDay",
+        description: "Your journey toward intentional fatherhood begins now. Check your email for next steps.",
       });
       
       setEmail('');
@@ -57,42 +57,63 @@ export const GetStarted = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-white mb-6">
-          Ready to Be the Dad <span className="text-amber-300">You Actually Want to Be?</span>
+          Begin Your Journey of <span className="text-slate-300">Purposeful Fatherhood</span>
         </h2>
-        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Join thousands of fathers who've ditched the guesswork and started using data to build 
-          real connections, celebrate small wins, and show up consistently.
+        <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Join fathers who are committed to intentional growth, meaningful connections, and building lasting legacies through purposeful parenting.
         </p>
         
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 mb-8 border border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-left">
               <div className="flex items-center mb-4">
-                <Rocket className="w-6 h-6 text-amber-300 mr-2" />
-                <h3 className="text-2xl font-bold text-white">What You'll Get:</h3>
+                <Target className="w-6 h-6 text-slate-300 mr-3" />
+                <h3 className="text-xl font-semibold text-white">Your Growth Platform:</h3>
               </div>
-              <ul className="space-y-2 text-blue-100">
-                <li>• Your personal dad dashboard</li>
-                <li>• Daily check-ins that take 2 minutes</li>
-                <li>• Learning modules that don't suck</li>
-                <li>• Real insights from real dads</li>
-                <li>• Progress tracking that feels good</li>
+              <ul className="space-y-3 text-slate-300">
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Personal reflection dashboard
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Intentional habit tracking
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Curated wisdom library
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Meaningful progress insights
+                </li>
               </ul>
             </div>
             <div className="text-left">
               <div className="flex items-center mb-4">
-                <Heart className="w-6 h-6 text-amber-300 mr-2" />
-                <h3 className="text-2xl font-bold text-white">Your Journey:</h3>
+                <Users className="w-6 h-6 text-slate-300 mr-3" />
+                <h3 className="text-xl font-semibold text-white">Your Path Forward:</h3>
               </div>
-              <ul className="space-y-2 text-blue-100">
-                <li>• Set up your profile (5 minutes)</li>
-                <li>• Start tracking what matters</li>
-                <li>• Learn from other dads</li>
-                <li>• Celebrate your wins</li>
-                <li>• Watch your impact grow</li>
+              <ul className="space-y-3 text-slate-300">
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Define your fatherhood values
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Track purposeful moments
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Connect with like-minded fathers
+                </li>
+                <li className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Build your lasting legacy
+                </li>
               </ul>
             </div>
           </div>
@@ -101,8 +122,8 @@ export const GetStarted = () => {
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
           <Input 
             type="email"
-            placeholder="Your email (we promise not to spam)" 
-            className="bg-white/90 border-white/20 text-gray-900 placeholder:text-gray-500"
+            placeholder="Enter your email to start" 
+            className="bg-white border-white/20 text-slate-900 placeholder:text-slate-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}
@@ -110,16 +131,16 @@ export const GetStarted = () => {
           <Button 
             type="submit"
             size="lg" 
-            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-8 whitespace-nowrap group"
+            className="bg-slate-700 hover:bg-slate-600 text-white font-medium px-8 whitespace-nowrap group border border-slate-600"
             disabled={isSubmitting}
           >
-            <Shield className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-            {isSubmitting ? 'Starting...' : 'Start Free'}
+            <TrendingUp className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+            {isSubmitting ? 'Starting...' : 'Begin Journey'}
           </Button>
         </form>
         
-        <p className="text-blue-200 text-sm mt-4">
-          Free to start. No credit card. Just better fatherhood.
+        <p className="text-slate-400 text-sm mt-6">
+          Start your intentional fatherhood journey. No commitments, just growth.
         </p>
       </div>
     </section>
