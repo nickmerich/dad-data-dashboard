@@ -1,67 +1,78 @@
 
+import { Award, Coffee, Home } from 'lucide-react';
+
 export const Community = () => {
   const inspiringFathers = [
     {
-      name: "Tony Dungy",
-      role: "NFL Coach & All Pro Dad Spokesperson",
-      impact: "Champions family-first leadership in professional sports",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face"
+      name: "Coach Tony",
+      role: "NFL Dad Guru",
+      impact: "Proves you can win championships and bedtime stories",
+      icon: Award,
+      bgColor: "from-blue-400 to-blue-500"
     },
     {
-      name: "Mark Merrill", 
-      role: "Founder of All Pro Dad",
-      impact: "Built community of 200k+ engaged fathers",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+      name: "Mark the Organizer", 
+      role: "Community Builder",
+      impact: "Built a 200k+ dad network (and still makes pancakes on Sunday)",
+      icon: Coffee,
+      bgColor: "from-green-400 to-green-500"
     },
     {
-      name: "Community Heroes",
-      role: "Local Father Leaders",
-      impact: "Grassroots organizers transforming neighborhoods",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      name: "Your Neighbor Dave",
+      role: "Everyday Hero",
+      impact: "Shows up every day, figures it out as he goes (just like you)",
+      icon: Home,
+      bgColor: "from-amber-400 to-amber-500"
     }
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Learn from Father Leaders
+            Learn from Dads Who <span className="text-transparent bg-gradient-to-r from-blue-600 to-amber-500 bg-clip-text">Get It</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Draw inspiration from fathers who are redefining what it means to be present, engaged, and impactful
+            Real fathers, real stories, real strategies. No perfect Instagram moments here—just honest wins and lessons learned.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {inspiringFathers.map((father, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                {father.name.split(' ').map(n => n[0]).join('')}
+          {inspiringFathers.map((father, index) => {
+            const IconComponent = father.icon;
+            return (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
+                <div className={`w-24 h-24 bg-gradient-to-br ${father.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
+                  <IconComponent className="w-10 h-10" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{father.name}</h3>
+                <p className="text-blue-600 font-medium mb-3 text-center">{father.role}</p>
+                <p className="text-gray-600 text-center leading-relaxed">{father.impact}</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{father.name}</h3>
-              <p className="text-blue-600 font-medium mb-3 text-center">{father.role}</p>
-              <p className="text-gray-600 text-center leading-relaxed">{father.impact}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+            Here's What Happens When Dads Show Up
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">85%</div>
-              <div className="text-gray-600">Better Academic Performance</div>
-              <div className="text-sm text-gray-500 mt-1">with involved fathers</div>
+            <div className="group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">85%</div>
+              <div className="text-gray-600 font-medium">Better Grades</div>
+              <div className="text-sm text-gray-500 mt-1">when dad's actually involved</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-indigo-600 mb-2">70%</div>
-              <div className="text-gray-600">Improved Emotional Health</div>
-              <div className="text-sm text-gray-500 mt-1">in children of engaged dads</div>
+            <div className="group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">70%</div>
+              <div className="text-gray-600 font-medium">Happier Kids</div>
+              <div className="text-sm text-gray-500 mt-1">with engaged fathers</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">92%</div>
-              <div className="text-gray-600">Stronger Life Outcomes</div>
-              <div className="text-sm text-gray-500 mt-1">with consistent father presence</div>
+            <div className="group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-amber-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">92%</div>
+              <div className="text-gray-600 font-medium">Life Success</div>
+              <div className="text-sm text-gray-500 mt-1">starts with dad presence</div>
             </div>
           </div>
         </div>
