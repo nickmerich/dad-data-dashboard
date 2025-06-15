@@ -86,6 +86,29 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mobile optimizations */
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve touch targets */
+  button, a {
+    touch-action: manipulation;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px;
+    }
   }
 }
 
@@ -140,6 +163,16 @@
   .delay-200 { animation-delay: 0.2s; }
   .delay-300 { animation-delay: 0.3s; }
   .delay-500 { animation-delay: 0.5s; }
+
+  /* Mobile-specific utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Improved mobile scrolling */
+  .scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Refined gradient text */
@@ -150,4 +183,21 @@
 /* Smooth, professional transitions */
 .smooth-hover {
   @apply transition-all duration-300 ease-out;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .mobile-padding {
+    @apply px-4 py-3;
+  }
+
+  .mobile-text {
+    @apply text-sm leading-relaxed;
+  }
+
+  /* Ensure proper touch targets */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

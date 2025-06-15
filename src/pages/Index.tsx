@@ -5,9 +5,12 @@ import { Community } from "@/components/Community";
 import { GetStarted } from "@/components/GetStarted";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { LogIn } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-50">
       {/* Navigation */}
@@ -15,9 +18,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-slate-900">DadDay</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-900">DadDay</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden sm:flex items-center space-x-4">
               <Link to="/dashboard">
                 <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
                   <LogIn className="w-4 h-4 mr-2" />
@@ -30,7 +35,46 @@ const Index = () => {
                 </Button>
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="sm:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="sm:hidden border-t border-slate-200 py-4 space-y-3">
+              <Link to="/dashboard" className="block">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-slate-300 text-slate-700 hover:bg-slate-50"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/dashboard" className="block">
+                <Button 
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Begin Your Journey
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
 
