@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Heart, TrendingUp, Users } from 'lucide-react';
 
@@ -27,8 +26,7 @@ export const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-200">
-          Finally, a place where "quality time" isn't just wishful thinking. Track what matters, 
-          celebrate small wins, and join dads who are actually showing up.
+          Track what matters, celebrate small wins, and join dads who are actually showing up.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in delay-300">
