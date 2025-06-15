@@ -1,9 +1,61 @@
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Rocket, Shield, Heart } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 export const GetStarted = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address to get started.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Email submitted:', email);
+      
+      toast({
+        title: "Thanks for your interest!",
+        description: "We'll be in touch soon. Check your email for next steps.",
+      });
+      
+      setEmail('');
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later or contact support.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700">
       <div className="max-w-4xl mx-auto text-center">
@@ -46,16 +98,25 @@ export const GetStarted = () => {
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
           <Input 
+            type="email"
             placeholder="Your email (we promise not to spam)" 
             className="bg-white/90 border-white/20 text-gray-900 placeholder:text-gray-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={isSubmitting}
           />
-          <Button size="lg" className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-8 whitespace-nowrap group">
+          <Button 
+            type="submit"
+            size="lg" 
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-8 whitespace-nowrap group"
+            disabled={isSubmitting}
+          >
             <Shield className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-            Start Free
+            {isSubmitting ? 'Starting...' : 'Start Free'}
           </Button>
-        </div>
+        </form>
         
         <p className="text-blue-200 text-sm mt-4">
           Free to start. No credit card. Just better fatherhood.
