@@ -57,73 +57,73 @@ export const GetStarted = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-white mb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
           Begin Your Journey of <span className="text-slate-300">Purposeful Fatherhood</span>
         </h2>
-        <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2">
           Join fathers who are committed to intentional growth, meaningful connections, and building lasting legacies through purposeful parenting.
         </p>
         
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 mb-8 border border-white/10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 sm:p-8 mb-6 sm:mb-8 border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="text-left">
-              <div className="flex items-center mb-4">
-                <Target className="w-6 h-6 text-slate-300 mr-3" />
-                <h3 className="text-xl font-semibold text-white">Your Growth Platform:</h3>
+              <div className="flex items-center mb-3 sm:mb-4">
+                <Target className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 mr-2 sm:mr-3" />
+                <h3 className="text-lg sm:text-xl font-semibold text-white">Your Growth Platform:</h3>
               </div>
-              <ul className="space-y-3 text-slate-300">
+              <ul className="space-y-2 sm:space-y-3 text-slate-300">
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Personal reflection dashboard
+                  <span className="text-sm sm:text-base">Personal reflection dashboard</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Intentional habit tracking
+                  <span className="text-sm sm:text-base">Intentional habit tracking</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Curated wisdom library
+                  <span className="text-sm sm:text-base">Curated wisdom library</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Meaningful progress insights
+                  <span className="text-sm sm:text-base">Meaningful progress insights</span>
                 </li>
               </ul>
             </div>
             <div className="text-left">
-              <div className="flex items-center mb-4">
-                <Users className="w-6 h-6 text-slate-300 mr-3" />
-                <h3 className="text-xl font-semibold text-white">Your Path Forward:</h3>
+              <div className="flex items-center mb-3 sm:mb-4">
+                <Users className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 mr-2 sm:mr-3" />
+                <h3 className="text-lg sm:text-xl font-semibold text-white">Your Path Forward:</h3>
               </div>
-              <ul className="space-y-3 text-slate-300">
+              <ul className="space-y-2 sm:space-y-3 text-slate-300">
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Define your fatherhood values
+                  <span className="text-sm sm:text-base">Define your fatherhood values</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Track purposeful moments
+                  <span className="text-sm sm:text-base">Track purposeful moments</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Connect with like-minded fathers
+                  <span className="text-sm sm:text-base">Connect with like-minded fathers</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Build your lasting legacy
+                  <span className="text-sm sm:text-base">Build your lasting legacy</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4 justify-center items-center max-w-md mx-auto">
           <Input 
             type="email"
             placeholder="Enter your email to start" 
-            className="bg-white border-white/20 text-slate-900 placeholder:text-slate-500"
+            className="bg-white border-white/20 text-slate-900 placeholder:text-slate-500 w-full min-h-[48px] text-base"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}
@@ -131,7 +131,7 @@ export const GetStarted = () => {
           <Button 
             type="submit"
             size="lg" 
-            className="bg-slate-700 hover:bg-slate-600 text-white font-medium px-8 whitespace-nowrap group border border-slate-600"
+            className="bg-slate-700 hover:bg-slate-600 text-white font-medium px-6 sm:px-8 w-full group border border-slate-600 min-h-[48px]"
             disabled={isSubmitting}
           >
             <TrendingUp className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
@@ -139,7 +139,7 @@ export const GetStarted = () => {
           </Button>
         </form>
         
-        <p className="text-slate-400 text-sm mt-6">
+        <p className="text-slate-400 text-xs sm:text-sm mt-4 sm:mt-6 px-2">
           Start your intentional fatherhood journey. No commitments, just growth.
         </p>
       </div>
